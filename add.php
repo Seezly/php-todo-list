@@ -1,7 +1,7 @@
 <?php
-    require 'db_connection.php';
-
     if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['urgency'])) {
+        
+        require 'db_connection.php';
 
         $title = $_POST['title'];
         $description = $_POST['description'];
@@ -10,9 +10,7 @@
         $stmt = $conn->prepare("INSERT INTO todos (title, description, urgency) VALUES (?, ?, ?)");
         $res = $stmt->execute([$title, $description, $urgency]);
 
-        if($res){
-            header("Location: index.php");
-        }
+        header("Location: index.php");
 
         $conn = null;
         exit();

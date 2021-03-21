@@ -61,14 +61,20 @@
                     </div>
                 <?php } ?>
 
+                <?php
+                
+                    $id = $conn->query('SELECT id FROM todos');
+                
+                ?>
+
                 <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)){ ?>
-                    <div class="todo" id=<?php $todo['id'] ?>>
+                    <div class="todo" id=<?php print_r($todo['id']); ?>>
                     
                         <h2><?php echo $todo['title'] ?></h2>
                         <p><?php echo $todo['description'] ?></p>
                         <small><?php echo $todo['urgency'] ?></small>
-                        <button id="edit">Edit</button>
-                        <button id="delete">Delete</button>
+                        <button class="edit" id=<?php print_r($todo['id']); ?>>Edit</button>
+                        <button class="delete" id=<?php print_r($todo['id']); ?>>Delete</button>
                     
                     </div>
                 <?php } ?>
@@ -76,6 +82,31 @@
             </section>
         
         </main>
+
+        <script >
+
+            const remove = document.getElementsByClassName('delete');
+
+            [...remove].forEach(el => {
+
+                const id = el.id;
+
+                const data = new FormData();
+
+                data.append('id', id);
+                
+                el.addEventListener('click', () => {
+                    fetch('delete.php', {
+                        method: 'POST',
+                        body: data
+                    })
+                    .then(res => console.log(res));
+                });
+            });
+        
+
+        
+        </script>
 
     </body>
 
