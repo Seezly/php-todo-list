@@ -10,8 +10,8 @@
         $stmt = $conn->prepare("INSERT INTO todos (title, description, urgency) VALUES (?, ?, ?)");
         $res = $stmt->execute([$title, $description, $urgency]);
 
-        header("Location: index.php");
-
+        header("Location: ./index.php");
+        
         $conn = null;
         exit();
     }

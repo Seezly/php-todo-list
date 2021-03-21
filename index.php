@@ -61,19 +61,13 @@
                     </div>
                 <?php } ?>
 
-                <?php
-                
-                    $id = $conn->query('SELECT id FROM todos');
-                
-                ?>
-
                 <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)){ ?>
                     <div class="todo" id=<?php print_r($todo['id']); ?>>
                     
                         <h2><?php echo $todo['title'] ?></h2>
                         <p><?php echo $todo['description'] ?></p>
                         <small><?php echo $todo['urgency'] ?></small>
-                        <button class="edit" id=<?php print_r($todo['id']); ?>>Edit</button>
+                        <a href="editForm.php?id=<?php print_r($todo['id']) ?>&title=<?php echo $todo['title'] ?>&description=<?php echo $todo['description'] ?>&urgency=<?php echo $todo['urgency'] ?>" class="edit" id=<?php print_r($todo['id']); ?>>Edit</a>
                         <button class="delete" id=<?php print_r($todo['id']); ?>>Delete</button>
                     
                     </div>
@@ -103,8 +97,6 @@
                     .then(res => console.log(res));
                 });
             });
-        
-
         
         </script>
 

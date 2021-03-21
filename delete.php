@@ -8,8 +8,8 @@
         $stmt = $conn->prepare("DELETE FROM todos WHERE id=?");
         $res = $stmt->execute([$id]);
 
-        header("Location: index.php");
-
+        header("Location: ./index.php");
+        
         $conn = null;
         exit();
     }
