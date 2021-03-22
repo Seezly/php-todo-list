@@ -31,46 +31,56 @@
 
     </head>
     
-    <body>
+    <body class="min-vh-100">
 
-        <main>
-        
-            <h1>PHP CRUD (Another bored to-do list)</h1>
+        <main class="container-fluid bg-dark text-light min-vh-100 p-5">
 
-            <section class="add">
-            
-                <form action="edit.php" method="POST">
-                
-                    <label for="title">Title:</label>            
-                    <input type="text" name="title" placeholder="Todo title" value=<?php echo $title ?> >
+            <section class="row">
 
-                    <label for="description">Description:</label>
-                    <input type="text" name="description" placeholder="Todo description" value=<?php echo $description ?> >
+                <h1 class="mb-5">PHP CRUD (Another bored to-do list)</h1>
 
-                    <label for="urgency">Urgency:</label>
-                    <select name="urgency">
-                        <option value="low">Low</option>
-                        <option value="medium">Medium</option>
-                        <option value="high">High</option>
-                    </select>
+                <article class="col-sm-4">
+                    <section class="add">
+                    
+                        <form action="edit.php" method="POST">
+                        
+                            <label for="title" class="form-label">Title:</label>            
+                            <input class="form-control" type="text" name="title" placeholder="Todo title" value=<?php echo $title ?> >
 
-                    <input type="hidden" name="id" value=<?php echo $id ?> >
+                            <label for="description" class="form-label">Description:</label>
+                            <input class="form-control" type="text" name="description" placeholder="Todo description" value=<?php echo $description ?> >
 
-                    <button type="submit">Edit todo</button>
+                            <label for="urgency" class="form-label">Urgency:</label>
+                            <select class="form-select" name="urgency">
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                            </select>
 
-                </form>
-            
-            </section>
+                            <input type="hidden" name="id" value=<?php echo $id ?> >
 
-            <section class="todos">
-                
-                <div class="todo" id=<?php echo $id ?>>
-                
-                    <h2><?php echo $title ?></h2>
-                    <p><?php echo $description ?></p>
-                    <small><?php echo $urgency ?></small>
-                
-                </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-outline-primary">Edit todo</button>
+                            </div>
+
+                        </form>
+                    
+                    </section>
+                </article>
+
+                <article class="todos col-sm-7 offset-1">
+                        
+                    <div class="todo card col-sm-5" id=<?php echo $id ?>>
+                    
+                        <div class="card-body">
+                            <h2 class="card-title text-primary"><?php echo $title ?></h2>
+                            <small class="card-subtitle text-secondary"><?php echo $urgency ?></small>
+                            <p class="card-text text-dark"><?php echo $description ?></p>
+                        </div>
+                    
+                    </div>
+
+                </article>
 
             </section>
         

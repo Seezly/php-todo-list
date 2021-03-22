@@ -65,9 +65,11 @@
 
                 <article class="todos col-sm-7 offset-1">
                     <?php if($todos->rowCount() <= 0){ ?>
-                        <div class="todo">
+                        <div class="todo card col-sm-3">
                         
-                            <h2>Add a new todo!</h2>
+                        <div class="card-body">
+                            <h2 class="card-title text-primary">Add a new todo!</h2>
+                        </div>
                         
                         </div>
                     <?php } ?>
