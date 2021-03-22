@@ -12,8 +12,6 @@
     $urgency = $_GET['urgency'];
     $id = $_GET['id'];
 
-    var_dump($_GET);
-
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +56,7 @@
                             </select>
 
                             <input type="hidden" name="id" value=<?php echo $id ?> >
-
+                            <br>
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-outline-primary">Edit todo</button>
                             </div>
