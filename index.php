@@ -61,7 +61,7 @@
                 
                     $todos = $conn->query('SELECT * FROM todos ORDER BY id DESC');
                 
-                    ?>
+                ?>
 
                 <article class="todos col-sm-7 offset-1">
                     <?php if($todos->rowCount() <= 0){ ?>
